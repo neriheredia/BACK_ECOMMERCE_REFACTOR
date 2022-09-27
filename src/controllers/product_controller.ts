@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { handleHttpError, handleHttpRes } from '../utils'
-import { createNewProduct } from '../services'
+import { createNewProduct, getAllProducts } from '../services'
 
 const createProduct = async ({ body }: Request, res: Response) => {
   try {
@@ -12,4 +12,13 @@ const createProduct = async ({ body }: Request, res: Response) => {
   }
 }
 
-export { createProduct }
+const getProducts = async (req: Request, res: Response) => {
+  try {
+    const allProducts = await getAllProducts()
+    handleHttpRes(res, 200, 'Successful the products', allProducts)
+  } catch (error) {
+    handleHttpError(res, 'ERROR_GET_ALL_PRODUCTS', error)
+  }
+}
+
+export { createProduct, getProducts }

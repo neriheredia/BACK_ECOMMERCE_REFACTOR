@@ -1,6 +1,6 @@
-import { NextFunction, Request, Response, Router } from 'express'
+import { Router } from 'express'
 import { readdirSync } from 'fs'
-import { handleHttpErrorRandom, removeExtension } from '../../utils'
+import { removeExtension } from '../../utils'
 
 const PATH_ROUTER = `${__dirname}`
 const INDEX = 'index'
@@ -15,11 +15,6 @@ readdirSync(PATH_ROUTER).filter((fileName) => {
       router.use(`/${cleanName}`, moduleRouter.router)
     })
   }
-})
-
-router.get('/*', (req: Request, res: Response, next: NextFunction) => {
-  handleHttpErrorRandom(res, '404_NOT_FOUND')
-  next()
 })
 
 export { router }

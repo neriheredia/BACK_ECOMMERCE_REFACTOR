@@ -3,4 +3,6 @@ import ProductModel from '../models/nosql/Product'
 
 const createNewProduct = async (product: Product) => await new ProductModel(product)
 
-export { createNewProduct }
+const getAllProducts = async () => await ProductModel.find({})
+
+export { createNewProduct, getAllProducts }

@@ -1,5 +1,5 @@
 import { Router } from 'express'
-import { createProduct } from '../../controllers'
+import { createProduct, getProducts } from '../../controllers'
 
 const router = Router()
 /**
@@ -101,5 +101,7 @@ const router = Router()
  */
 
 router.post('/', createProduct)
+
+router.get('/', getProducts)
 
 export { router }
