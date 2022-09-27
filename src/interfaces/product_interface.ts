@@ -5,7 +5,7 @@ export interface Product {
   images?: Array<string>
   inStock?: boolean
   ownerId?: string
-  quatity: number
+  quantity: number
   salePrice: number
   size?: Array<string>
   title: string

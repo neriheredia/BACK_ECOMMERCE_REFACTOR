@@ -8,7 +8,7 @@ const createProduct = async ({ body }: Request, res: Response) => {
     const productSaved = await response.save()
     handleHttpRes(res, 201, 'Product created! :D', productSaved)
   } catch (error) {
-    handleHttpError(res, 'ERROR_POST_PRODUCT')
+    handleHttpError(res, 'ERROR_CREATE_PRODUCT')
   }
 }
 
