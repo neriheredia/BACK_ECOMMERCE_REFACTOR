@@ -5,4 +5,6 @@ const createNewProduct = async (product: Product) => await new ProductModel(prod
 
 const getAllProducts = async () => await ProductModel.find({})
 
-export { createNewProduct, getAllProducts }
+const updateProduct = async (product: Product) => await ProductModel.updateOne(product)
+
+export { createNewProduct, getAllProducts, updateProduct }
